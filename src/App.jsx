@@ -1,21 +1,20 @@
-import { createContext, useState } from 'react'
-import Parent from './Parent'
+import Nav from "./Component/Nav";
+import Itemcard from "./Component/Itemcard";
+import "./App.css";
+import { useState } from "react";
+import creatcontext from "./Component/Contaxt";
 
- export  const coxt = createContext()
 function App() {
-  const [count, setCount] = useState("Manish")
-  
-
+  const [total,settotal] =useState(0)
+  const[item,setitem] =useState(0)
   return (
-    <>
-      <h1>
-        here i am pasiing state to parant using contact
-      </h1>
-      <coxt.Provider value={count}>
-      <Parent />
-      </coxt.Provider>
-    </>
-  )
+   <creatcontext.Provider value={{ total, settotal,item,setitem }}>
+    <div className="app">
+      <Nav />
+      <Itemcard />
+    </div>
+    </creatcontext.Provider>
+  );
 }
 
-export default App
+export default App;
